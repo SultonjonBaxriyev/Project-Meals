@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Menu from './Menu';
+import Categories from './Categories';
+import items from './data';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [info, setInfo] = useState(items)
+  return(
+    <>
+      <section className='menu section'>
+        <div className='title'>
+          <h2>Our menu</h2>
+          <div className='underline'></div>
+        </div>
+        <div className='btn-container'>
+          <button className='filter-btn' type='button'>all</button>
+          <button className='filter-btn' type='button'>breakfast</button>
+          <button className='filter-btn' type='button'>lunch</button>
+          <button className='filter-btn' type='button'>shakes</button>
+        </div>
+        <div className='section-center'>
+            <Categories info={items}/>
+          </div>
+      </section>
+    </>
+  )
 }
 
 export default App;
